@@ -28,4 +28,11 @@ public final class Constants {
 
     public static final double kTrainingWheels = 0.55;
   }
+
+  public static class CameraConstants {
+
+    // height of apriltag - height of camera
+    public static final int kApriltagHeightDifferenceInches = 57 - 6;
+    
+  }
 }
