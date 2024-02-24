@@ -8,6 +8,7 @@ import static frc.robot.Constants.DrivetrainConstants.*;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -46,5 +47,9 @@ public class Drivetrain extends SubsystemBase {
 
   public void tankDrive(double leftSpeed, double rightSpeed) {
     m_drivetrain.tankDrive(kTrainingWheels * leftSpeed, kTrainingWheels * rightSpeed);
+  }
+
+  public void rawTankDrive(double leftSpeed, double rightSpeed) {
+    m_drivetrain.tankDrive(leftSpeed, rightSpeed);
   }
 }

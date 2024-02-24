@@ -32,7 +32,16 @@ public final class Constants {
   public static class CameraConstants {
 
     // height of apriltag - height of camera
-    public static final int kApriltagHeightDifferenceInches = 57 - 6;
-    
+    public static final double kApriltagHeightDifferenceInches = 57 - 6;
+    public static final double kCameraAngle = 34;
+  }
+
+  public static class AutoConstants {
+
+    public static class lookAtApriltagConstants {
+    // height of apriltag - height of camera
+      public static final double kP = .03;
+      //public static final double kI = 34;
+    }
   }
 }
