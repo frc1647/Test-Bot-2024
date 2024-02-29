@@ -18,7 +18,7 @@ public class Camera extends SubsystemBase {
 
   double yaw = 0;
   double pitch = 0;
-  double area = 0;
+  double range = 0;
   int tagID;
 
 
@@ -27,9 +27,6 @@ public class Camera extends SubsystemBase {
 
     camera.setPipelineIndex(0);
 
-    /*SmartDashboard.putNumber("yaw", yaw);
-    SmartDashboard.putNumber("pitch", pitch);
-    SmartDashboard.putNumber("area", area);*/
   }
 
   @Override
@@ -46,19 +43,17 @@ public class Camera extends SubsystemBase {
         if (tagID == 4 || tagID == 7) {
           
           target = result.getTargets().get(i);
-          //target = result.getBestTarget();
           
           yaw = target.getYaw();
           pitch = target.getPitch();
-          area = target.getArea();
+          range = kApriltagHeightDifferenceInches / Math.tan(Math.toRadians(kCameraAngle + pitch));
         }
       }
 
     
       SmartDashboard.putNumber("yaw", yaw);
       SmartDashboard.putNumber("pitch", pitch);
-      SmartDashboard.putNumber("area", area);
-      //SmartDashboard.putNumber("latency", latency());
+      SmartDashboard.putNumber("range", range);
     }
   }
 
@@ -67,34 +62,17 @@ public class Camera extends SubsystemBase {
     return result.hasTargets();
   }
 
-  	public double getRange(){
-      if (result.hasTargets()) {
-        return kApriltagHeightDifferenceInches / Math.tan(Math.toRadians(kCameraAngle + pitch));
-      }else{
-        return 0.0;
-      }
-  	}
-
-    public double getYawAngle(){ //range: (_,_)
-      if (result.hasTargets()) {
-        return yaw;
-      }else{
-        return 0.0;
-      }
-  	}
-  	
-  	
-  	public double latency() {
-      camera.setDriverMode(true);
-  		camera.setPipelineIndex(2);
-  		return result.getLatencyMillis() / 1000.0;
-  	}
-/* 
-    public void smartdashboard(){
-      SmartDashboard.putNumber("yaw", yaw);
-      SmartDashboard.putNumber("pitch", pitch);
-      SmartDashboard.putNumber("area", area);
-      SmartDashboard.putNumber("latency", latency());
-    }
-    */
+  public double getRange(){
+    return range;
   }
+
+  public double getYawAngle(){ //range: (_,_)
+    return yaw;
+  }
+
+  public double latency() {
+    camera.setDriverMode(true);
+    camera.setPipelineIndex(2);
+    return result.getLatencyMillis() / 1000.0;
+  }
+}
