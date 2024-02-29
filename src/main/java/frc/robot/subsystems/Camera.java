@@ -22,7 +22,7 @@ public class Camera extends SubsystemBase {
   int tagID;
 
 
-  public Camera(){
+  public Camera() {
     camera = new PhotonCamera("FrontCam");
 
     camera.setPipelineIndex(0);

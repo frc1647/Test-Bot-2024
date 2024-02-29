@@ -10,8 +10,8 @@ public class lookAtApriltagCommand extends Command{
     Drivetrain drivetrain;
 
     public lookAtApriltagCommand(Camera m_camera, Drivetrain m_drivetrain) {
-        m_camera = camera;
-        m_drivetrain = drivetrain;
+        camera = m_camera;
+        drivetrain = m_drivetrain;
 
         // Use addRequirements() here to declare subsystem dependencies.
         addRequirements(camera, drivetrain);

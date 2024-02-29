@@ -40,7 +40,7 @@ public final class Constants {
 
     public static class lookAtApriltagConstants {
     // height of apriltag - height of camera
-      public static final double kP = .03;
+      public static final double kP = .01;
       //public static final double kI = 34;
     }
   }

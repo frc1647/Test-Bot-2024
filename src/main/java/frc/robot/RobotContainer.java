@@ -31,7 +31,7 @@ public class RobotContainer {
   private final Drivetrain m_drivetrain = new Drivetrain();
   private final Camera m_camera = new Camera();
 
-  private final SendableChooser<Command> m_chooser = new SendableChooser<>();
+  //private final SendableChooser<Command> m_chooser = new SendableChooser<>();
 
   private final CommandGenericHID m_driverController =
       new CommandGenericHID(OperatorConstants.kDriverControllerPort);
