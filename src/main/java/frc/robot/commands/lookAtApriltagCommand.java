@@ -26,7 +26,13 @@ public class lookAtApriltagCommand extends Command{
     public void execute() {
         if(camera.getHasTarget()){
             drivetrain.rawTankDrive(camera.getYawAngle() * lookAtApriltagConstants.kP, -camera.getYawAngle() * lookAtApriltagConstants.kP);
+        } else {
+            drivetrain.rawTankDrive(0, 0);
         }
+
+        /*if(camera.getRange()>12){
+            drivetrain.tankDrive(.7, .7);
+        }*/
     }
 
     // Called once the command ends or is interrupted.
